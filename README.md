@@ -2,7 +2,6 @@
 # Sleep Breathing Irregularity Detection System
 
 ## 🏥 Project Overview
-
 This project implements a machine learning pipeline for detecting breathing irregularities during sleep using physiological signals. Developed as part of a healthcare AI initiative, the system analyzes overnight sleep data to classify breathing patterns into Normal, Hypopnea, and Obstructive Apnea categories.
 
 ## 📊 Dataset
