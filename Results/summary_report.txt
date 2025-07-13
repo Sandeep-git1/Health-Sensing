@@ -1,0 +1,63 @@
+SLEEP BREATHING IRREGULARITY CLASSIFICATION - SUMMARY REPORT
+============================================================
+
+EXPERIMENTAL SETUP:
+- Cross-validation: Leave-One-Participant-Out
+- Models: 1D CNN, 1D Conv-LSTM
+- Target Classes: Hypopnea, Obstructive Apnea, Normal
+- Actual Classes: Hypopnea, Normal, Obstructive Apnea
+- Signal length: 968 samples
+- Signals: nasal_airflow, spo2, thoracic_movement
+
+WHY LEAVE-ONE-PARTICIPANT-OUT CV?
+- Prevents data leakage: physiological signals from same person are correlated
+- Better generalization: tests ability to work on unseen individuals
+- Realistic evaluation: mimics real-world deployment scenario
+- Avoids overfitting to participant-specific patterns
+
+CNN RESULTS:
+------------------------------
+Accuracy: 0.7688 ± 0.2004
+Precision (macro): 0.3717 ± 0.0249
+Recall (macro): 0.3864 ± 0.0410
+
+Per-class metrics:
+  Hypopnea:
+    Precision: 0.1231 ± 0.0828
+    Recall: 0.1387 ± 0.0434
+    Sensitivity: 0.1387 ± 0.0434
+    Specificity: 0.9302 ± 0.0182
+  Normal:
+    Precision: 0.9296 ± 0.0458
+    Recall: 0.8055 ± 0.2205
+    Sensitivity: 0.8055 ± 0.2205
+    Specificity: 0.3352 ± 0.2265
+  Obstructive Apnea:
+    Precision: 0.0622 ± 0.0812
+    Recall: 0.2150 ± 0.2827
+    Sensitivity: 0.2150 ± 0.2827
+    Specificity: 0.8720 ± 0.2086
+
+Conv-LSTM RESULTS:
+------------------------------
+Accuracy: 0.6324 ± 0.3344
+Precision (macro): 0.2882 ± 0.1483
+Recall (macro): 0.4718 ± 0.1682
+
+Per-class metrics:
+  Hypopnea:
+    Precision: 0.1022 ± 0.0960
+    Recall: 0.3464 ± 0.3792
+    Sensitivity: 0.3464 ± 0.3792
+    Specificity: 0.6979 ± 0.3662
+  Normal:
+    Precision: 0.7184 ± 0.3653
+    Recall: 0.6856 ± 0.3603
+    Sensitivity: 0.6856 ± 0.3603
+    Specificity: 0.3846 ± 0.3611
+  Obstructive Apnea:
+    Precision: 0.0440 ± 0.0547
+    Recall: 0.3833 ± 0.3930
+    Sensitivity: 0.3833 ± 0.3930
+    Specificity: 0.9888 ± 0.0097
+
