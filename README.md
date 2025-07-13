@@ -1,7 +1,7 @@
-# Health-Sensing
 # Sleep Breathing Irregularity Detection System
 
 ## 🏥 Project Overview
+
 This project implements a machine learning pipeline for detecting breathing irregularities during sleep using physiological signals. Developed as part of a healthcare AI initiative, the system analyzes overnight sleep data to classify breathing patterns into Normal, Hypopnea, and Obstructive Apnea categories.
 
 ## 📊 Dataset
@@ -27,20 +27,20 @@ Project Root/
 │   │   ├── nasal_airflow.txt
 │   │   ├── thoracic_movement.txt
 │   │   ├── spo2.txt
-│   │   ├── flow_events.csv
-│   │   └── sleep_profile.csv
+│   │   ├── flow_events.txt
+│   │   └── sleep_profile.txt
 │   ├── AP02/
 │   ├── AP03/
 │   ├── AP04/
 │   └── AP05/
 ├── Visualizations/           # Generated signal plots (PDF format)
-├── Dataset/                  # Processed windowed data
-├── Models/                   # Trained model files
 ├── Results/                  # Performance metrics and confusion matrices
 ├── vis.py                    # Signal visualization script
+├── clean_vis.py              # Clean visualization generation
 ├── create_dataset.py         # Data preprocessing and windowing
-├── model_training.py           # Model training and evaluation
-├── utils.py                  # Utility functions
+├── model_training.py         # Model training and evaluation
+├── inspect_data_sample.py    # Data inspection and analysis
+├── Requirements.txt          # Project dependencies
 └── README.md
 ```
 
@@ -83,12 +83,30 @@ python create_dataset.py -in_dir "Data" -out_dir "Dataset"
 Train and evaluate models using Leave-One-Participant-Out cross-validation:
 
 ```bash
-python train_models.py
+python model_training.py
 ```
 
 **Models Implemented**:
 - 1D Convolutional Neural Network (CNN)
 - 1D Convolutional LSTM (Conv-LSTM)
+
+### Additional Scripts
+
+**Data Inspection**:
+```bash
+python inspect_data_sample.py
+```
+- Analyze raw data structure and quality
+- Generate data distribution statistics
+- Identify potential data issues
+
+**Clean Visualizations**:
+```bash
+python clean_vis.py
+```
+- Generate publication-ready signal plots
+- Enhanced visualization formatting
+- Batch processing for multiple participants
 
 ## 📈 Results Summary
 
@@ -153,14 +171,24 @@ python train_models.py
 
 ## 📚 Dependencies
 
+See `Requirements.txt` for complete dependency list:
+
 ```
+matplotlib>=3.7.0
+seaborn>=0.12.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+pyarrow>=12.0.0
+torch>=2.0.0
+scikit-learn>=1.2.0
 numpy>=1.21.0
 pandas>=1.3.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
 scikit-learn>=1.0.0
 tensorflow>=2.8.0
-scipy>=1.7.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+pickle5>=0.0.11
 ```
 
 ## 👥 Contributors
