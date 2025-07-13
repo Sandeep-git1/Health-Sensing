@@ -39,7 +39,7 @@ Project Root/
 ├── Results/                  # Performance metrics and confusion matrices
 ├── vis.py                    # Signal visualization script
 ├── create_dataset.py         # Data preprocessing and windowing
-├── train_models.py           # Model training and evaluation
+├── model_training.py           # Model training and evaluation
 ├── utils.py                  # Utility functions
 └── README.md
 ```
